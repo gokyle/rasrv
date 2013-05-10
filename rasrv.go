@@ -12,8 +12,6 @@ func client(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("[+] client connected")
 	forwarded := r.Header.Get("x-forwarded-for")
 	client := strings.Split(forwarded, ",")[0]
-	w.Write([]byte(r.RemoteAddr))
-	w.Write([]byte("\n"))
 	w.Write([]byte(client + "\n"))
 }
 
